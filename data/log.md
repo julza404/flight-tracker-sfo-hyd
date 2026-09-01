@@ -14,3 +14,11 @@
   - $4,338 | 2026-11-24 -> 2026-12-15 | 
   - $4,338 | 2026-11-30 -> 2026-12-21 | Cathay Pacific
 - Running best price so far: **$4,338**.
+
+## 2026-09-01
+- Swept 11/11 candidate departure dates (0 failed).
+- Cheapest overall: **$4,338** round trip — Cathay Pacific, 1 stop(s) — on 2026-11-24 -> 2026-12-15.
+- **2 deal(s) at/under $4,500:**
+  - $4,338 | 2026-11-24 -> 2026-12-15 | Cathay Pacific
+  - $4,338 | 2026-11-30 -> 2026-12-21 | 
+- Running best price so far: **$4,338**.
