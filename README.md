@@ -27,6 +27,15 @@ flags deals. Built to avoid any paid subscription.
   $4,338-$9,621, cheapest via Cathay Pacific); **premium economy $2,200** is
   an unverified placeholder -- no real premium-economy data has landed yet,
   tighten it once a few runs come in.
+- Every fare gets a `booking_url` -- the same tfs-encoded Google Flights
+  search URL the scraper itself queries, so a result links straight to a
+  live, bookable search rather than just a number. The dashboard surfaces it
+  as a "Book this fare" link on the hero card and a "Book →" link per row.
+- The scraper's underlying HTML parser occasionally mis-extracts a
+  multi-airline/codeshare row as blank name + blank duration (a DOM-selector
+  quirk in `fast_flights`, not a real distinct fare). `check_flights.py`
+  filters those out in favor of a confirmed-carrier row whenever one exists
+  for that date, so "carrier unconfirmed" should now be rare, not routine.
 - **Notification is a separate, read-only Claude cloud routine** ("SFO-HYD
   Business Class Tracker", daily, offset after the GitHub Actions run) that
   just clones this repo, reads `data/last_notify.json`, and sends a push
@@ -46,18 +55,22 @@ Two ways to use Capital One miles for this trip, from simplest to highest value:
    works on any fare. This is what the tracker's "points needed" figure
    assumes.
 2. **Transfer to an airline partner for an award seat (higher value, more
-   effort)** — Capital One transfers 1:1 (mostly) to Turkish Miles&Smiles,
-   Avianca LifeMiles, Air Canada Aeroplan, Singapore KrisFlyer, Etihad Guest,
-   Emirates Skywards, and others. A well-priced Star Alliance or partner
-   business award SFO–HYD (usually via a connection — HYD has no nonstop from
-   SFO) can run 100–150k miles round trip instead of 400k+, sometimes plus
-   fuel surcharges depending on program. **This part is not automated** —
-   there's no free, reliable API for live award-seat availability (the paid
-   options are Seats.aero Pro and ExpertFlyer, which you said to skip). If
-   the tracker shows persistently high cash fares, that's your cue to
-   manually check award space on united.com (Star Alliance saver seats),
-   aircanada.com/aeroplan, or lifemiles.com before defaulting to the
-   Purchase Eraser.
+   effort)** — Capital One transfers 1:1 (mostly) to Cathay Pacific Asia
+   Miles, Turkish Miles&Smiles, Avianca LifeMiles, Air Canada Aeroplan,
+   Singapore KrisFlyer, Etihad Guest, Emirates Skywards, and others. Cathay
+   Pacific is worth calling out specifically: it's the single most frequent
+   carrier this tracker finds on SFO–HYD, and a direct Capital One transfer
+   partner, so a business-class award through Asia Miles is the most
+   plausible higher-value path here. A well-priced award can run well under
+   half of the ~400k+ miles Purchase Eraser implies, sometimes plus fuel
+   surcharges depending on program. **This part is not automated and shows
+   no "points deals" in the tracker** — there's no free, reliable API for
+   live award-seat availability (the paid options are Seats.aero Pro and
+   ExpertFlyer, which you said to skip), so award space has to be checked by
+   hand. The dashboard links directly to Cathay's award search
+   (cathaypacific.com/redeem-flight-awards) for a quick manual check; also
+   worth trying aircanada.com/aeroplan and lifemiles.com if cash fares stay
+   persistently high on other carriers.
 
 ## Files
 - `check_flights.py` — the checker (edit CONFIG block to change dates/threshold)
