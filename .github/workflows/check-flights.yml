@@ -1,0 +1,41 @@
+name: Check SFO-HYD business class fares
+
+on:
+  schedule:
+    # 14:07 UTC daily (~6:07am PST / 7:07am PDT) -- off-round minute on purpose
+    - cron: "7 14 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install --quiet -r requirements.txt
+
+      - name: Run flight check
+        run: python3 check_flights.py
+
+      - name: Update log.md
+        run: python3 scripts/update_log.py
+
+      - name: Commit and push results
+        run: |
+          git config user.name "flight-tracker-bot"
+          git config user.email "actions@github.com"
+          git add data/price_history.csv data/latest_deals.json data/log.md
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "Daily check: $(date -u +%Y-%m-%d)"
+            git push
+          fi
