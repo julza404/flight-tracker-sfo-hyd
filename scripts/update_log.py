@@ -75,6 +75,19 @@ def main():
             f.write(header + "\n".join(lines) + "\n")
 
     should_notify = bool(deals) or is_new_best
+
+    # Machine-readable marker for the read-only notifier (a Claude cloud routine
+    # that pulls this repo but never pushes) to consume without re-deriving anything.
+    notify_marker = {
+        "checked_on": today,
+        "should_notify": should_notify,
+        "is_new_best": is_new_best,
+        "running_best_usd": running_best,
+        "deals": deals,
+        "cheapest_overall": cheapest,
+    }
+    (DATA_DIR / "last_notify.json").write_text(json.dumps(notify_marker, indent=2))
+
     print(f"NOTIFY:{'yes' if should_notify else 'no'}")
     print(f"RUNNING_BEST:{running_best}")
     print(f"NEW_BEST:{is_new_best}")

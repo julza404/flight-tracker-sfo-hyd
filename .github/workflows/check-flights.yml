@@ -32,7 +32,7 @@ jobs:
         run: |
           git config user.name "flight-tracker-bot"
           git config user.email "actions@github.com"
-          git add data/price_history.csv data/latest_deals.json data/log.md
+          git add data/price_history.csv data/latest_deals.json data/log.md data/last_notify.json
           if git diff --cached --quiet; then
             echo "No data changes to commit."
           else

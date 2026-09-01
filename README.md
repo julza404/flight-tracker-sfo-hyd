@@ -5,17 +5,29 @@ logs history, and flags deals. Built to avoid any paid subscription.
 
 ## How it works
 - `check_flights.py` queries Google Flights (via the free `fast-flights` library,
-  no API key) for round-trip business class fares across a sweep of departure
-  dates (every 3 days from 2026-11-15 to 2026-12-15, 21-day trip length).
-- Every run appends to `data/price_history.csv` (full history, one row per
-  date/run) and overwrites `data/latest_deals.json` (this run's summary).
-- A deal is any fare at or below `ALERT_THRESHOLD_USD` (currently **$3,800**
-  round trip, per person) — this is a starting guess based on typical
-  SFO–HYD business fares of $3,800–6,500; adjust in `check_flights.py` once
-  you've seen a few weeks of real data.
-- Runs on a recurring Claude Code schedule (daily). Each run: execute the
-  script, read `latest_deals.json`, push-notify on any deal or a new
-  cheapest-overall price, and note the result in `data/log.md`.
+  pinned to `fast-flights==2.2` -- 3.x has a breaking API change) for round-trip
+  business class fares across a sweep of departure dates (every 3 days from
+  2026-11-15 to 2026-12-15, 21-day trip length).
+- **The actual scraping runs in GitHub Actions** (`.github/workflows/check-flights.yml`,
+  daily at 14:07 UTC / ~6-7am Pacific depending on DST), not in a Claude cloud
+  routine -- Claude's cloud sandbox blocks outbound requests to google.com at
+  its own egress proxy, so the scrape has to happen somewhere with real internet
+  access. GitHub's hosted runners have that; free for a repo like this.
+- Each GitHub Actions run: installs pinned deps, runs `check_flights.py`
+  (appends to `data/price_history.csv`, overwrites `data/latest_deals.json`),
+  runs `scripts/update_log.py` (appends a dated section to `data/log.md` and
+  writes `data/last_notify.json`), then commits and pushes all of it back to
+  the repo with the built-in `GITHUB_TOKEN`.
+- A deal is any fare at or below `ALERT_THRESHOLD_USD` in `check_flights.py`
+  (currently **$4,500** round trip -- set after a live sweep on 2026-08-31
+  found real fares ranging $4,338-$9,621, cheapest via Cathay Pacific).
+- **Notification is a separate, read-only Claude cloud routine** ("SFO-HYD
+  Business Class Tracker", daily, offset after the GitHub Actions run) that
+  just clones this repo, reads `data/last_notify.json`, and sends a push
+  notification if `should_notify` is true (a deal, or a new all-time-low
+  price). It never pushes back to the repo, which sidesteps a separate
+  permission gap (Claude's GitHub connector needed extra scoping just to
+  read the repo, and a full write grant wasn't reliably available).
 
 ## Capital One points strategy
 Two ways to use Capital One miles for this trip, from simplest to highest value:
@@ -41,13 +53,19 @@ Two ways to use Capital One miles for this trip, from simplest to highest value:
 
 ## Files
 - `check_flights.py` — the checker (edit CONFIG block to change dates/threshold)
+- `scripts/update_log.py` — appends to `data/log.md`, writes `data/last_notify.json`
+- `.github/workflows/check-flights.yml` — the daily GitHub Actions job
+- `requirements.txt` — pinned deps (`fast-flights==2.2`)
 - `data/price_history.csv` — full run history
 - `data/latest_deals.json` — most recent run's structured output
+- `data/last_notify.json` — small marker the notifier routine reads
 - `data/log.md` — human-readable running log, updated each scheduled run
-- `venv/` — isolated Python env (fast-flights + deps)
+- `venv/` — local-only isolated Python env, not used by CI (gitignored)
 
 ## Running manually
 ```
 cd ~/flight-tracker-sfo-hyd
 ./venv/bin/python3 check_flights.py
+./venv/bin/python3 scripts/update_log.py
 ```
+Or trigger the GitHub Actions run directly: `gh workflow run check-flights.yml -R julza404/flight-tracker-sfo-hyd`
