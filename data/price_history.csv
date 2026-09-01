@@ -1,32 +1,52 @@
-checked_on,depart_date,return_date,cheapest_price_usd,airline,stops,duration,current_price_signal
-2026-08-31,2026-11-15,2026-12-06,5537,Cathay Pacific,1,23 hr 55 min,typical
-2026-08-31,2026-11-18,2026-12-09,5287,Cathay Pacific,1,23 hr 55 min,typical
-2026-08-31,2026-11-21,2026-12-12,6648,"Air Canada, Emirates",2,37 hr 35 min,typical
-2026-08-31,2026-11-24,2026-12-15,4338,Cathay Pacific,1,23 hr 55 min,low
-2026-08-31,2026-11-27,2026-12-18,5268,Emirates,1,21 hr 15 min,typical
-2026-08-31,2026-11-30,2026-12-21,4338,Cathay Pacific,1,36 hr 25 min,low
-2026-08-31,2026-12-09,2026-12-30,6641,British Airways,1,22 hr 30 min,typical
-2026-08-31,2026-12-12,2027-01-02,9621,Cathay Pacific,1,23 hr 55 min,high
-2026-08-31,2026-12-15,2027-01-05,6830,Cathay Pacific,1,36 hr 25 min,typical
-2026-09-01,2026-11-15,2026-12-06,5537,Cathay Pacific,1,23 hr 55 min,typical
-2026-09-01,2026-11-18,2026-12-09,5287,Cathay Pacific,1,23 hr 55 min,typical
-2026-09-01,2026-11-21,2026-12-12,6648,"Air Canada, Emirates",2,37 hr 35 min,typical
-2026-09-01,2026-11-24,2026-12-15,4338,,Unknown,,low
-2026-09-01,2026-11-27,2026-12-18,5268,,Unknown,,typical
-2026-09-01,2026-11-30,2026-12-21,4338,Cathay Pacific,1,36 hr 25 min,low
-2026-09-01,2026-12-03,2026-12-24,6236,,Unknown,,typical
-2026-09-01,2026-12-06,2026-12-27,5537,Cathay Pacific,1,23 hr 55 min,typical
-2026-09-01,2026-12-09,2026-12-30,6641,,Unknown,,typical
-2026-09-01,2026-12-12,2027-01-02,9621,,Unknown,,high
-2026-09-01,2026-12-15,2027-01-05,6830,Cathay Pacific,1,36 hr 25 min,typical
-2026-09-01,2026-11-15,2026-12-06,5537,Cathay Pacific,1,23 hr 55 min,typical
-2026-09-01,2026-11-18,2026-12-09,5287,Cathay Pacific,1,23 hr 55 min,typical
-2026-09-01,2026-11-21,2026-12-12,6648,"Air Canada, Emirates",2,37 hr 35 min,typical
-2026-09-01,2026-11-24,2026-12-15,4338,Cathay Pacific,1,23 hr 55 min,low
-2026-09-01,2026-11-27,2026-12-18,5268,Emirates,1,21 hr 15 min,typical
-2026-09-01,2026-11-30,2026-12-21,4338,,Unknown,,low
-2026-09-01,2026-12-03,2026-12-24,6236,,Unknown,,typical
-2026-09-01,2026-12-06,2026-12-27,5537,Cathay Pacific,1,23 hr 55 min,typical
-2026-09-01,2026-12-09,2026-12-30,6641,,Unknown,,typical
-2026-09-01,2026-12-12,2027-01-02,9621,,Unknown,,high
-2026-09-01,2026-12-15,2027-01-05,6830,Cathay Pacific,1,36 hr 25 min,typical
+checked_on,cabin,depart_date,return_date,cheapest_price_usd,airline,stops,duration,current_price_signal
+2026-08-31,business,2026-11-15,2026-12-06,5537,Cathay Pacific,1,23 hr 55 min,typical
+2026-08-31,business,2026-11-18,2026-12-09,5287,Cathay Pacific,1,23 hr 55 min,typical
+2026-08-31,business,2026-11-21,2026-12-12,6648,"Air Canada, Emirates",2,37 hr 35 min,typical
+2026-08-31,business,2026-11-24,2026-12-15,4338,Cathay Pacific,1,23 hr 55 min,low
+2026-08-31,business,2026-11-27,2026-12-18,5268,Emirates,1,21 hr 15 min,typical
+2026-08-31,business,2026-11-30,2026-12-21,4338,Cathay Pacific,1,36 hr 25 min,low
+2026-08-31,business,2026-12-09,2026-12-30,6641,British Airways,1,22 hr 30 min,typical
+2026-08-31,business,2026-12-12,2027-01-02,9621,Cathay Pacific,1,23 hr 55 min,high
+2026-08-31,business,2026-12-15,2027-01-05,6830,Cathay Pacific,1,36 hr 25 min,typical
+2026-09-01,business,2026-11-15,2026-12-06,5537,Cathay Pacific,1,23 hr 55 min,typical
+2026-09-01,business,2026-11-18,2026-12-09,5287,Cathay Pacific,1,23 hr 55 min,typical
+2026-09-01,business,2026-11-21,2026-12-12,6648,"Air Canada, Emirates",2,37 hr 35 min,typical
+2026-09-01,business,2026-11-24,2026-12-15,4338,,Unknown,,low
+2026-09-01,business,2026-11-27,2026-12-18,5268,,Unknown,,typical
+2026-09-01,business,2026-11-30,2026-12-21,4338,Cathay Pacific,1,36 hr 25 min,low
+2026-09-01,business,2026-12-03,2026-12-24,6236,,Unknown,,typical
+2026-09-01,business,2026-12-06,2026-12-27,5537,Cathay Pacific,1,23 hr 55 min,typical
+2026-09-01,business,2026-12-09,2026-12-30,6641,,Unknown,,typical
+2026-09-01,business,2026-12-12,2027-01-02,9621,,Unknown,,high
+2026-09-01,business,2026-12-15,2027-01-05,6830,Cathay Pacific,1,36 hr 25 min,typical
+2026-09-01,business,2026-11-15,2026-12-06,5537,Cathay Pacific,1,23 hr 55 min,typical
+2026-09-01,business,2026-11-18,2026-12-09,5287,Cathay Pacific,1,23 hr 55 min,typical
+2026-09-01,business,2026-11-21,2026-12-12,6648,"Air Canada, Emirates",2,37 hr 35 min,typical
+2026-09-01,business,2026-11-24,2026-12-15,4338,Cathay Pacific,1,23 hr 55 min,low
+2026-09-01,business,2026-11-27,2026-12-18,5268,Emirates,1,21 hr 15 min,typical
+2026-09-01,business,2026-11-30,2026-12-21,4338,,Unknown,,low
+2026-09-01,business,2026-12-03,2026-12-24,6236,,Unknown,,typical
+2026-09-01,business,2026-12-06,2026-12-27,5537,Cathay Pacific,1,23 hr 55 min,typical
+2026-09-01,business,2026-12-09,2026-12-30,6641,,Unknown,,typical
+2026-09-01,business,2026-12-12,2027-01-02,9621,,Unknown,,high
+2026-09-01,business,2026-12-15,2027-01-05,6830,Cathay Pacific,1,36 hr 25 min,typical
+2026-08-31,business,2026-11-15,2026-12-16,5537,Cathay Pacific,1,23 hr 55 min,typical
+2026-08-31,business,2026-11-18,2026-12-19,5537,Cathay Pacific,1,23 hr 55 min,typical
+2026-08-31,business,2026-11-24,2026-12-25,4588,Cathay Pacific,1,23 hr 55 min,low
+2026-08-31,business,2026-11-27,2026-12-28,5537,Cathay Pacific,1,23 hr 55 min,typical
+2026-08-31,business,2026-11-30,2026-12-31,6730,Cathay Pacific,1,36 hr 25 min,typical
+2026-08-31,business,2026-12-03,2027-01-03,7679,Cathay Pacific,1,23 hr 55 min,typical
+2026-08-31,business,2026-12-06,2027-01-06,5637,Cathay Pacific,1,23 hr 55 min,typical
+2026-08-31,business,2026-12-09,2027-01-09,7929,Cathay Pacific,1,23 hr 55 min,typical
+2026-08-31,business,2026-12-12,2027-01-12,6980,Cathay Pacific,1,23 hr 55 min,typical
+2026-08-31,business,2026-12-15,2027-01-15,6800,"SWISS, Edelweiss Air, SriLankan",2,34 hr 55 min,typical
+2026-08-31,premium-economy,2026-11-15,2026-12-16,2055,"Alaska, British Airways",2,25 hr 8 min,
+2026-08-31,premium-economy,2026-11-18,2026-12-19,2735,"American, British Airways",2,26 hr 21 min,
+2026-08-31,premium-economy,2026-11-24,2026-12-25,2370,"American, British Airways",2,25 hr 48 min,
+2026-08-31,premium-economy,2026-11-27,2026-12-28,2532,Singapore Airlines,1,24 hr 20 min,
+2026-08-31,premium-economy,2026-11-30,2026-12-31,3180,"Air Canada, Air India",2,31 hr 20 min,
+2026-08-31,premium-economy,2026-12-03,2027-01-03,3821,"EVA Air, THAI",2,34 hr 35 min,
+2026-08-31,premium-economy,2026-12-06,2027-01-06,3199,Cathay Pacific,1,23 hr 55 min,
+2026-08-31,premium-economy,2026-12-09,2027-01-09,3199,Cathay Pacific,1,36 hr 25 min,
+2026-08-31,premium-economy,2026-12-12,2027-01-12,3260,"Alaska, British Airways",2,25 hr 55 min,
+2026-08-31,premium-economy,2026-12-15,2027-01-15,3457,Cathay Pacific,1,23 hr 55 min,

@@ -22,3 +22,16 @@
   - $4,338 | 2026-11-24 -> 2026-12-15 | Cathay Pacific
   - $4,338 | 2026-11-30 -> 2026-12-21 | 
 - Running best price so far: **$4,338**.
+
+## 2026-09-01 (migration)
+Trip config changed: return date extended so the latest departure (Dec 15)
+returns Jan 15, 2027 (was a fixed 21-day stay); premium economy added as a
+second tracked cabin alongside business. Log format below now splits by
+cabin (### Business / ### Premium Economy) going forward.
+
+### Business
+- Carrying forward prior running best unchanged by this migration.
+- Running best price so far: **$4,338**.
+
+### Premium Economy
+- Newly tracked as of this run -- no prior baseline.

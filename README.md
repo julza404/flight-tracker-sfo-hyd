@@ -1,13 +1,16 @@
-# SFO → Hyderabad Business Class Tracker
+# SFO → Hyderabad Fare Tracker
 
-Tracks cash business-class fares SFO↔HYD for departures mid-Nov to mid-Dec 2026,
-logs history, and flags deals. Built to avoid any paid subscription.
+Tracks cash business-class and premium-economy fares SFO↔HYD for departures
+mid-Nov to mid-Dec 2026, returns as late as mid-Jan 2027, logs history, and
+flags deals. Built to avoid any paid subscription.
 
 ## How it works
 - `check_flights.py` queries Google Flights (via the free `fast-flights` library,
   pinned to `fast-flights==2.2` -- 3.x has a breaking API change) for round-trip
-  business class fares across a sweep of departure dates (every 3 days from
-  2026-11-15 to 2026-12-15, 21-day trip length).
+  fares in **both `business` and `premium-economy`** across a sweep of departure
+  dates (every 3 days from 2026-11-15 to 2026-12-15). Trip length is fixed at
+  31 days, so the latest departure (Dec 15) returns on the latest date wanted
+  (Jan 15, 2027) -- earlier departures get correspondingly earlier returns.
 - **The actual scraping runs in GitHub Actions** (`.github/workflows/check-flights.yml`,
   daily at 14:07 UTC / ~6-7am Pacific depending on DST), not in a Claude cloud
   routine -- Claude's cloud sandbox blocks outbound requests to google.com at
@@ -18,16 +21,21 @@ logs history, and flags deals. Built to avoid any paid subscription.
   runs `scripts/update_log.py` (appends a dated section to `data/log.md` and
   writes `data/last_notify.json`), then commits and pushes all of it back to
   the repo with the built-in `GITHUB_TOKEN`.
-- A deal is any fare at or below `ALERT_THRESHOLD_USD` in `check_flights.py`
-  (currently **$4,500** round trip -- set after a live sweep on 2026-08-31
-  found real fares ranging $4,338-$9,621, cheapest via Cathay Pacific).
+- A deal is any fare at or below that cabin's threshold in
+  `ALERT_THRESHOLD_USD` (a dict in `check_flights.py`): **business $4,500**
+  (set after a live sweep on 2026-08-31 found real fares ranging
+  $4,338-$9,621, cheapest via Cathay Pacific); **premium economy $2,200** is
+  an unverified placeholder -- no real premium-economy data has landed yet,
+  tighten it once a few runs come in.
 - **Notification is a separate, read-only Claude cloud routine** ("SFO-HYD
   Business Class Tracker", daily, offset after the GitHub Actions run) that
   just clones this repo, reads `data/last_notify.json`, and sends a push
-  notification if `should_notify` is true (a deal, or a new all-time-low
-  price). It never pushes back to the repo, which sidesteps a separate
-  permission gap (Claude's GitHub connector needed extra scoping just to
-  read the repo, and a full write grant wasn't reliably available).
+  notification if either cabin's `should_notify` is true (a deal, or a new
+  all-time-low price, tracked separately per cabin so a cheap premium-economy
+  fare never masks a business-class deal or vice versa). It never pushes back
+  to the repo, which sidesteps a separate permission gap (Claude's GitHub
+  connector needed extra scoping just to read the repo, and a full write
+  grant wasn't reliably available).
 
 ## Capital One points strategy
 Two ways to use Capital One miles for this trip, from simplest to highest value:
