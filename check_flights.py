@@ -96,7 +96,9 @@ def main():
         if not priced_flights:
             continue
 
-        priced_flights.sort(key=lambda fp: fp[1])
+        # Sort by price, then prefer rows with a real airline name (Google occasionally
+        # returns a blank name/stops for an otherwise-valid, cheapest-priced row).
+        priced_flights.sort(key=lambda fp: (fp[1], not fp[0].name))
         cheapest_flight, cheapest_price = priced_flights[0]
 
         row = {
