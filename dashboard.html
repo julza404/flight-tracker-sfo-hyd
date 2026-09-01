@@ -67,7 +67,6 @@
     padding: 0 20px 64px;
   }
   .wrap { max-width: 920px; margin: 0 auto; }
-
   .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
 
   /* ---------- Header / boarding-pass strip ---------- */
@@ -79,13 +78,7 @@
     box-shadow: var(--shadow);
     overflow: hidden;
   }
-  .route-strip {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 26px 30px;
-    gap: 20px;
-  }
+  .route-strip { display: flex; align-items: center; justify-content: space-between; padding: 26px 30px; gap: 20px; }
   .route-city { text-align: left; }
   .route-city.dest { text-align: right; }
   .route-code {
@@ -95,110 +88,59 @@
     line-height: 1;
     letter-spacing: -0.01em;
   }
-  .route-name {
-    font-size: 0.78rem;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 6px;
-  }
-  .route-plane {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    color: var(--accent);
-    padding: 0 10px;
-  }
-  .route-line {
-    width: 100%;
-    height: 1px;
-    background: repeating-linear-gradient(to right, var(--border) 0 6px, transparent 6px 12px);
-    position: relative;
-  }
-  .route-class {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--ink-muted);
-  }
-  .perf {
-    height: 0;
-    border-top: 1.5px dashed var(--border);
-    position: relative;
-  }
-  .perf::before, .perf::after {
-    content: "";
-    position: absolute;
-    top: -9px;
-    width: 18px; height: 18px;
-    background: var(--bg);
-    border-radius: 50%;
-  }
+  .route-name { font-size: 0.78rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 6px; }
+  .route-plane { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--accent); padding: 0 10px; }
+  .route-line { width: 100%; height: 1px; background: repeating-linear-gradient(to right, var(--border) 0 6px, transparent 6px 12px); }
+  .route-class { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); }
+
+  .perf { height: 0; border-top: 1.5px dashed var(--border); position: relative; }
+  .perf::before, .perf::after { content: ""; position: absolute; top: -9px; width: 18px; height: 18px; background: var(--bg); border-radius: 50%; }
   .perf::before { left: -29px; }
   .perf::after { right: -29px; }
 
-  .status-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 28px;
-    padding: 18px 30px 22px;
-    align-items: baseline;
-  }
+  .status-row { display: flex; flex-wrap: wrap; gap: 10px 28px; padding: 18px 30px 22px; align-items: baseline; }
   .status-item { display: flex; flex-direction: column; gap: 3px; }
-  .status-label {
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.09em;
-    color: var(--ink-muted);
-  }
+  .status-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.09em; color: var(--ink-muted); }
   .status-value { font-size: 0.92rem; font-weight: 500; }
 
-  /* ---------- Hero stat ---------- */
-  .hero {
+  /* ---------- Cabin toggle ---------- */
+  .cabin-toggle {
+    display: inline-flex;
     margin-top: 22px;
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 16px;
-  }
-  @media (max-width: 640px) { .hero { grid-template-columns: 1fr; } }
-
-  .card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 999px;
+    padding: 4px;
     box-shadow: var(--shadow);
-    padding: 24px 26px;
+    gap: 4px;
   }
-  .card h2 {
-    margin: 0 0 4px;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--ink-muted);
-    font-weight: 600;
-  }
-  .best-price {
-    font-family: "Fraunces", Georgia, serif;
-    font-size: clamp(2.6rem, 7vw, 3.6rem);
+  .cabin-btn {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.86rem;
     font-weight: 500;
-    line-height: 1.05;
-    margin: 6px 0 2px;
-    text-wrap: balance;
+    padding: 9px 20px;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink-muted);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
   }
+  .cabin-btn:hover { color: var(--ink); }
+  .cabin-btn.active { background: var(--accent); color: var(--bg); }
+  .cabin-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- Hero stat ---------- */
+  .hero { margin-top: 16px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .hero { grid-template-columns: 1fr; } }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); padding: 24px 26px; }
+  .card h2 { margin: 0 0 4px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); font-weight: 600; }
+  .best-price { font-family: "Fraunces", Georgia, serif; font-size: clamp(2.6rem, 7vw, 3.6rem); font-weight: 500; line-height: 1.05; margin: 6px 0 2px; text-wrap: balance; }
   .best-dates { color: var(--ink-muted); font-size: 0.95rem; margin-top: 4px; }
   .best-airline {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 14px;
-    font-size: 0.85rem;
-    background: var(--good-soft);
-    color: var(--good);
-    padding: 5px 12px;
-    border-radius: 999px;
-    font-weight: 500;
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 0.85rem;
+    background: var(--good-soft); color: var(--good); padding: 5px 12px; border-radius: 999px; font-weight: 500;
   }
 
   .miles-card .row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
@@ -223,21 +165,10 @@
   .pt { stroke: var(--surface); stroke-width: 2; cursor: pointer; }
 
   .tooltip {
-    position: absolute;
-    pointer-events: none;
-    background: var(--ink);
-    color: var(--bg);
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.76rem;
-    padding: 8px 11px;
-    border-radius: 8px;
-    line-height: 1.5;
-    box-shadow: var(--shadow);
-    opacity: 0;
-    transform: translate(-50%, -110%);
-    transition: opacity 0.1s ease;
-    white-space: nowrap;
-    z-index: 5;
+    position: absolute; pointer-events: none; background: var(--ink); color: var(--bg);
+    font-family: "IBM Plex Mono", monospace; font-size: 0.76rem; padding: 8px 11px; border-radius: 8px;
+    line-height: 1.5; box-shadow: var(--shadow); opacity: 0; transform: translate(-50%, -110%);
+    transition: opacity 0.1s ease; white-space: nowrap; z-index: 5;
   }
   .chart-wrap { position: relative; }
 
@@ -245,14 +176,8 @@
   .manifest { margin-top: 16px; }
   table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
   thead th {
-    text-align: left;
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--ink-muted);
-    font-weight: 600;
-    padding: 0 10px 10px;
-    border-bottom: 1px solid var(--border);
+    text-align: left; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--ink-muted); font-weight: 600; padding: 0 10px 10px; border-bottom: 1px solid var(--border);
   }
   tbody td { padding: 11px 10px; border-bottom: 1px solid var(--border); vertical-align: middle; }
   tbody tr:last-child td { border-bottom: none; }
@@ -260,14 +185,8 @@
   .table-scroll { overflow-x: auto; }
   .price-cell { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
   .pill {
-    display: inline-flex;
-    align-items: center;
-    padding: 3px 9px;
-    border-radius: 999px;
-    font-size: 0.72rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em;
   }
   .pill.good { background: var(--good-soft); color: var(--good); }
   .pill.neutral { background: var(--neutral-soft); color: var(--neutral-signal); }
@@ -282,13 +201,7 @@
   .log-body p { margin: 0 0 4px; font-size: 0.88rem; line-height: 1.55; }
   .log-body .headline { font-weight: 500; }
 
-  footer {
-    margin-top: 28px;
-    text-align: center;
-    font-size: 0.78rem;
-    color: var(--ink-muted);
-    line-height: 1.7;
-  }
+  footer { margin-top: 28px; text-align: center; font-size: 0.78rem; color: var(--ink-muted); line-height: 1.7; }
   footer a { color: var(--accent); }
 </style>
 
@@ -301,7 +214,7 @@
         <div class="route-name">San Francisco</div>
       </div>
       <div class="route-plane">
-        <div class="route-class">Business &middot; Round Trip</div>
+        <div class="route-class" id="routeClassLabel">Business &middot; Round Trip</div>
         <div class="route-line"></div>
       </div>
       <div class="route-city dest">
@@ -312,16 +225,16 @@
     <div class="perf"></div>
     <div class="status-row">
       <div class="status-item">
-        <span class="status-label">Window</span>
+        <span class="status-label">Depart</span>
         <span class="status-value mono">Nov 15 &ndash; Dec 15, 2026</span>
       </div>
       <div class="status-item">
-        <span class="status-label">Trip length</span>
-        <span class="status-value mono">21 days</span>
+        <span class="status-label">Return by</span>
+        <span class="status-value mono">Jan 15, 2027</span>
       </div>
       <div class="status-item">
         <span class="status-label">Alert threshold</span>
-        <span class="status-value mono">$4,500</span>
+        <span class="status-value mono" id="thresholdValue">&mdash;</span>
       </div>
       <div class="status-item">
         <span class="status-label">Last checked</span>
@@ -329,6 +242,11 @@
       </div>
     </div>
   </header>
+
+  <div class="cabin-toggle" role="tablist" aria-label="Cabin class">
+    <button class="cabin-btn active" id="btnBusiness" role="tab" aria-selected="true">Business</button>
+    <button class="cabin-btn" id="btnPremium" role="tab" aria-selected="false">Premium Economy</button>
+  </div>
 
   <section class="hero">
     <div class="card">
@@ -350,7 +268,7 @@
       <h2>Cheapest fare by departure date</h2>
       <div class="legend">
         <span><i class="dot good"></i>low</span>
-        <span><i class="dot neutral"></i>typical</span>
+        <span><i class="dot neutral"></i>typical / unrated</span>
         <span><i class="dot warn"></i>high</span>
       </div>
     </div>
@@ -364,9 +282,7 @@
     <h2 style="margin-bottom:14px;">Manifest &mdash; all swept dates</h2>
     <div class="table-scroll">
       <table>
-        <thead>
-          <tr><th>Depart</th><th>Return</th><th>Fare</th><th>Airline</th><th>Stops</th><th>Signal</th></tr>
-        </thead>
+        <thead><tr><th>Depart</th><th>Return</th><th>Fare</th><th>Airline</th><th>Stops</th><th>Signal</th></tr></thead>
         <tbody id="manifestBody"></tbody>
       </table>
     </div>
@@ -379,25 +295,46 @@
 
   <footer>
     Snapshot from the last automated check &mdash; GitHub Actions scrapes Google Flights daily and Claude
-    alerts on deals or new lows.<br>
+    alerts on deals or new lows, tracked separately for each cabin.<br>
     <a href="https://github.com/julza404/flight-tracker-sfo-hyd" target="_blank" rel="noopener">github.com/julza404/flight-tracker-sfo-hyd</a>
   </footer>
 </div>
 
 <script>
-  const fares = [
-    { depart: "2026-11-15", ret: "2026-12-06", price: 5537, signal: "typical", airline: "Cathay Pacific", stops: 1 },
-    { depart: "2026-11-18", ret: "2026-12-09", price: 5287, signal: "typical", airline: "Cathay Pacific", stops: 1 },
-    { depart: "2026-11-21", ret: "2026-12-12", price: 6648, signal: "typical", airline: "Air Canada, Emirates", stops: 2 },
-    { depart: "2026-11-24", ret: "2026-12-15", price: 4338, signal: "low", airline: "Cathay Pacific", stops: 1 },
-    { depart: "2026-11-27", ret: "2026-12-18", price: 5268, signal: "typical", airline: "Emirates", stops: 1 },
-    { depart: "2026-11-30", ret: "2026-12-21", price: 4338, signal: "low", airline: "Cathay Pacific", stops: 1 },
-    { depart: "2026-12-03", ret: "2026-12-24", price: 6236, signal: "typical", airline: null, stops: null },
-    { depart: "2026-12-06", ret: "2026-12-27", price: 5537, signal: "typical", airline: "Cathay Pacific", stops: 1 },
-    { depart: "2026-12-09", ret: "2026-12-30", price: 6641, signal: "typical", airline: null, stops: null },
-    { depart: "2026-12-12", ret: "2027-01-02", price: 9621, signal: "high", airline: null, stops: null },
-    { depart: "2026-12-15", ret: "2027-01-05", price: 6830, signal: "typical", airline: "Cathay Pacific", stops: 1 },
-  ];
+  const data = {
+    business: {
+      threshold: 4500,
+      fares: [
+        { depart: "2026-11-15", ret: "2026-12-16", price: 5537, signal: "typical", airline: null, stops: null },
+        { depart: "2026-11-18", ret: "2026-12-19", price: 5537, signal: "typical", airline: null, stops: null },
+        { depart: "2026-11-21", ret: "2026-12-22", price: 6648, signal: "typical", airline: "Air Canada, Emirates", stops: 2 },
+        { depart: "2026-11-24", ret: "2026-12-25", price: 4588, signal: "low", airline: null, stops: null },
+        { depart: "2026-11-27", ret: "2026-12-28", price: 5537, signal: "typical", airline: "Cathay Pacific", stops: 1 },
+        { depart: "2026-11-30", ret: "2026-12-31", price: 6730, signal: "typical", airline: "Cathay Pacific", stops: 1 },
+        { depart: "2026-12-03", ret: "2027-01-03", price: 7679, signal: "typical", airline: null, stops: null },
+        { depart: "2026-12-06", ret: "2027-01-06", price: 5637, signal: "typical", airline: null, stops: null },
+        { depart: "2026-12-09", ret: "2027-01-09", price: 7929, signal: "typical", airline: "Cathay Pacific", stops: 1 },
+        { depart: "2026-12-12", ret: "2027-01-12", price: 6980, signal: "typical", airline: "Cathay Pacific", stops: 1 },
+        { depart: "2026-12-15", ret: "2027-01-15", price: 6800, signal: "typical", airline: "SWISS, Edelweiss Air, SriLankan", stops: 2 },
+      ]
+    },
+    premium: {
+      threshold: 2200,
+      fares: [
+        { depart: "2026-11-15", ret: "2026-12-16", price: 2055, signal: "", airline: null, stops: null },
+        { depart: "2026-11-18", ret: "2026-12-19", price: 2735, signal: "", airline: null, stops: null },
+        { depart: "2026-11-21", ret: "2026-12-22", price: 2543, signal: "", airline: null, stops: null },
+        { depart: "2026-11-24", ret: "2026-12-25", price: 2370, signal: "", airline: "American, British Airways", stops: 2 },
+        { depart: "2026-11-27", ret: "2026-12-28", price: 2532, signal: "", airline: "Singapore Airlines", stops: 1 },
+        { depart: "2026-11-30", ret: "2026-12-31", price: 3180, signal: "", airline: null, stops: null },
+        { depart: "2026-12-03", ret: "2027-01-03", price: 3821, signal: "", airline: null, stops: null },
+        { depart: "2026-12-06", ret: "2027-01-06", price: 3199, signal: "", airline: "Cathay Pacific", stops: 1 },
+        { depart: "2026-12-09", ret: "2027-01-09", price: 3199, signal: "", airline: "Cathay Pacific", stops: 1 },
+        { depart: "2026-12-12", ret: "2027-01-12", price: 3260, signal: "", airline: "Alaska, British Airways", stops: 2 },
+        { depart: "2026-12-15", ret: "2027-01-15", price: 3457, signal: "", airline: null, stops: null },
+      ]
+    }
+  };
 
   const lastCheckedDate = "2026-09-01";
 
@@ -416,37 +353,55 @@
       headline: "Automation moved to GitHub Actions",
       lines: [
         "Claude's cloud sandbox turned out to block outbound requests to google.com, so the scraper moved to a GitHub Actions job with real internet access; a separate read-only Claude routine now just reads the results and sends the push alert.",
-        "Swept all 11 dates successfully (0 failed). Same cheapest fare held: $4,338, Cathay Pacific.",
-        "2 fares matched the $4,500 deal threshold &mdash; Nov 24&ndash;Dec 15 and Nov 30&ndash;Dec 21, both $4,338."
+        "Swept all 11 dates successfully. Same cheapest business fare held: $4,338, Cathay Pacific."
+      ]
+    },
+    {
+      date: "2026-09-01",
+      headline: "Extended return window, added premium economy",
+      lines: [
+        "Return dates now go as late as Jan 15, 2027 (was a fixed 21-day stay) &mdash; the latest departure (Dec 15) returns on the latest date wanted.",
+        "Premium economy added as a second tracked cabin, with its own alert threshold and running-best history so it never masks a business-class deal.",
+        "First premium-economy read: $2,055 round trip (Nov 15 &rarr; Dec 16), under the $2,200 placeholder threshold &mdash; flagged as a new low on the very first check."
       ]
     }
   ];
 
   const fmt = n => "$" + n.toLocaleString();
-  const fmtDate = iso => {
-    const d = new Date(iso + "T00:00:00");
-    return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
-  };
+  const fmtDate = iso => new Date(iso + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" });
   const signalColorVar = s => s === "low" ? "--good" : s === "high" ? "--warn" : "--neutral-signal";
   const signalPillClass = s => s === "low" ? "good" : s === "high" ? "warn" : "neutral";
+  const signalText = s => s ? s : "unrated";
 
-  // ---- Hero stat ----
-  const cheapest = fares.reduce((a, b) => (b.price < a.price ? b : a));
-  document.getElementById("bestPrice").textContent = fmt(cheapest.price);
-  document.getElementById("bestDates").textContent =
-    fmtDate(cheapest.depart) + " → " + fmtDate(cheapest.ret) + ", " + cheapest.depart.slice(0, 4);
-  document.getElementById("bestAirline").textContent =
-    (cheapest.airline || "Carrier unconfirmed") + " · " + (cheapest.stops != null ? cheapest.stops + " stop" + (cheapest.stops === 1 ? "" : "s") : "—");
-  document.getElementById("milesEraser").textContent = (cheapest.price * 100).toLocaleString() + " mi";
-  const prices = fares.map(f => f.price);
-  document.getElementById("priceRange").textContent = fmt(Math.min(...prices)) + " – " + fmt(Math.max(...prices));
-  document.getElementById("datesCount").textContent = fares.length + " departures";
-  document.getElementById("lastChecked").textContent = fmtDate(lastCheckedDate) + ", " + lastCheckedDate.slice(0, 4);
+  let activeCabin = "business";
 
-  // ---- Chart ----
-  (function drawChart() {
+  function render(cabinKey) {
+    const cabin = data[cabinKey];
+    const fares = cabin.fares;
+    const prices = fares.map(f => f.price);
+    const cheapest = fares.reduce((a, b) => (b.price < a.price ? b : a));
+
+    document.getElementById("routeClassLabel").textContent =
+      (cabinKey === "business" ? "Business" : "Premium Economy") + " · Round Trip";
+    document.getElementById("thresholdValue").textContent = fmt(cabin.threshold);
+    document.getElementById("bestPrice").textContent = fmt(cheapest.price);
+    document.getElementById("bestDates").textContent =
+      fmtDate(cheapest.depart) + " → " + fmtDate(cheapest.ret) + ", " + cheapest.depart.slice(0, 4);
+    document.getElementById("bestAirline").textContent =
+      (cheapest.airline || "Carrier unconfirmed") + " · " + (cheapest.stops != null ? cheapest.stops + " stop" + (cheapest.stops === 1 ? "" : "s") : "—");
+    document.getElementById("milesEraser").textContent = (cheapest.price * 100).toLocaleString() + " mi";
+    document.getElementById("priceRange").textContent = fmt(Math.min(...prices)) + " – " + fmt(Math.max(...prices));
+    document.getElementById("datesCount").textContent = fares.length + " departures";
+    document.getElementById("lastChecked").textContent = fmtDate(lastCheckedDate) + ", " + lastCheckedDate.slice(0, 4);
+
+    drawChart(fares, prices);
+    renderTable(fares);
+  }
+
+  function drawChart(fares, prices) {
     const svg = document.getElementById("chart");
     const tooltip = document.getElementById("tooltip");
+    svg.innerHTML = "";
     const W = 860, H = 260, padL = 54, padR = 16, padT = 16, padB = 34;
     const innerW = W - padL - padR, innerH = H - padT - padB;
 
@@ -464,7 +419,6 @@
       return e;
     };
 
-    // gridlines + y labels
     const steps = 4;
     for (let s = 0; s <= steps; s++) {
       const v = yMin + ((yMax - yMin) * s) / steps;
@@ -475,7 +429,6 @@
       svg.appendChild(label);
     }
 
-    // x labels (every other point to avoid crowding)
     fares.forEach((f, i) => {
       if (i % 2 === 0 || i === fares.length - 1) {
         const label = el("text", { class: "axis-label", x: x(i), y: H - 10, "text-anchor": "middle" });
@@ -484,26 +437,23 @@
       }
     });
 
-    // area
     let areaPath = `M ${x(0)} ${y(fares[0].price)}`;
     fares.forEach((f, i) => { if (i > 0) areaPath += ` L ${x(i)} ${y(f.price)}`; });
     areaPath += ` L ${x(fares.length - 1)} ${padT + innerH} L ${x(0)} ${padT + innerH} Z`;
     svg.appendChild(el("path", { class: "price-area", d: areaPath }));
 
-    // line
     let linePath = `M ${x(0)} ${y(fares[0].price)}`;
     fares.forEach((f, i) => { if (i > 0) linePath += ` L ${x(i)} ${y(f.price)}`; });
     svg.appendChild(el("path", { class: "price-line", d: linePath }));
 
-    // points
     fares.forEach((f, i) => {
       const cx = x(i), cy = y(f.price);
       const colorVar = `var(${signalColorVar(f.signal)})`;
       const c = el("circle", { class: "pt", cx, cy, r: 5, fill: colorVar });
-      c.addEventListener("mousemove", (e) => {
+      c.addEventListener("mousemove", () => {
         const rect = svg.getBoundingClientRect();
         const scale = rect.width / W;
-        tooltip.style.left = (rect.left - svg.parentElement.getBoundingClientRect().left + cx * scale) + "px";
+        tooltip.style.left = (cx * scale) + "px";
         tooltip.style.top = (cy * (rect.height / H)) + "px";
         tooltip.innerHTML = `<strong>${fmt(f.price)}</strong><br>${fmtDate(f.depart)} → ${fmtDate(f.ret)}<br>${f.airline || "carrier unconfirmed"}`;
         tooltip.style.opacity = 1;
@@ -511,24 +461,39 @@
       c.addEventListener("mouseleave", () => { tooltip.style.opacity = 0; });
       svg.appendChild(c);
     });
-  })();
+  }
 
-  // ---- Manifest table ----
-  const tbody = document.getElementById("manifestBody");
-  fares.forEach(f => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td class="mono">${fmtDate(f.depart)}</td>
-      <td class="mono">${fmtDate(f.ret)}</td>
-      <td class="price-cell">${fmt(f.price)}</td>
-      <td>${f.airline || '<span class="muted">unconfirmed</span>'}</td>
-      <td class="mono">${f.stops != null ? f.stops : '<span class="muted">&mdash;</span>'}</td>
-      <td><span class="pill ${signalPillClass(f.signal)}">${f.signal}</span></td>
-    `;
-    tbody.appendChild(tr);
-  });
+  function renderTable(fares) {
+    const tbody = document.getElementById("manifestBody");
+    tbody.innerHTML = "";
+    fares.forEach(f => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td class="mono">${fmtDate(f.depart)}</td>
+        <td class="mono">${fmtDate(f.ret)}</td>
+        <td class="price-cell">${fmt(f.price)}</td>
+        <td>${f.airline || '<span class="muted">unconfirmed</span>'}</td>
+        <td class="mono">${f.stops != null ? f.stops : '<span class="muted">&mdash;</span>'}</td>
+        <td><span class="pill ${signalPillClass(f.signal)}">${signalText(f.signal)}</span></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
 
-  // ---- Log ----
+  document.getElementById("btnBusiness").addEventListener("click", () => setCabin("business"));
+  document.getElementById("btnPremium").addEventListener("click", () => setCabin("premium"));
+
+  function setCabin(cabinKey) {
+    activeCabin = cabinKey;
+    document.getElementById("btnBusiness").classList.toggle("active", cabinKey === "business");
+    document.getElementById("btnBusiness").setAttribute("aria-selected", cabinKey === "business");
+    document.getElementById("btnPremium").classList.toggle("active", cabinKey === "premium");
+    document.getElementById("btnPremium").setAttribute("aria-selected", cabinKey === "premium");
+    render(cabinKey);
+  }
+
+  render(activeCabin);
+
   const logBody = document.getElementById("logBody");
   logEntries.forEach(entry => {
     const row = document.createElement("div");
