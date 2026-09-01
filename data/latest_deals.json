@@ -1,23 +1,35 @@
 {
-  "run_timestamp": "2026-08-31",
+  "run_timestamp": "2026-09-01",
   "dates_checked": 11,
-  "dates_succeeded": 9,
-  "dates_errored": 2,
-  "errors": [
+  "dates_succeeded": 11,
+  "dates_errored": 0,
+  "errors": [],
+  "alert_threshold_usd": 4500,
+  "deals": [
     {
-      "depart": "2026-12-03",
-      "error": "401 Result: {\"error\":\"no token provided\",\"logs\":{\"control\":\"{\\\"level\\\":\\\"info\\\",\\\"message\\\":\\\"Validating\nturnstile\\\",\\\"request-id\\\":\\\"a7adb3f4-a586-4708-a18a-300eb5dd398c\\\",\\\"service\\\":\\\"control\\\",\\\"testId\n\\\":\\\"a7adb3f4-a586-4708-a18a-300eb5dd398c\\\",\\\"time\\\":\\\"2026-09-01T04:14:47.98413148Z\\\"}\\n{\\\"level\\\":\n\\\"info\\\",\\\"message\\\":\\\"Could not validate turnstile: no token\nprovided\\\",\\\"request-id\\\":\\\"a7adb3f4-a586-4708-a18a-300eb5dd398c\\\",\\\"service\\\":\\\"control\\\",\\\"testId\\\n\":\\\"a7adb3f4-a586-4708-a18a-300eb5dd398c\\\",\\\"time\\\":\\\"2026-09-01T04:14:47.984171946Z\\\"}\\n\"},\"request\nId\":\"a7adb3f4-a586-4708-a18a-300eb5dd398c\",\"testId\":\"a7adb3f4-a586-4708-a18a-300eb5dd398c\"}\n"
+      "checked_on": "2026-09-01",
+      "depart_date": "2026-11-24",
+      "return_date": "2026-12-15",
+      "cheapest_price_usd": 4338,
+      "airline": "",
+      "stops": "Unknown",
+      "duration": "",
+      "current_price_signal": "low"
     },
     {
-      "depart": "2026-12-06",
-      "error": "401 Result: {\"error\":\"no token provided\",\"logs\":{\"control\":\"{\\\"level\\\":\\\"info\\\",\\\"message\\\":\\\"Validating\nturnstile\\\",\\\"request-id\\\":\\\"8b08bed6-ba48-4c9e-82e5-3aaeb5e472ec\\\",\\\"service\\\":\\\"control\\\",\\\"testId\n\\\":\\\"8b08bed6-ba48-4c9e-82e5-3aaeb5e472ec\\\",\\\"time\\\":\\\"2026-09-01T04:14:49.657383943Z\\\"}\\n{\\\"level\\\"\n:\\\"info\\\",\\\"message\\\":\\\"Could not validate turnstile: no token\nprovided\\\",\\\"request-id\\\":\\\"8b08bed6-ba48-4c9e-82e5-3aaeb5e472ec\\\",\\\"service\\\":\\\"control\\\",\\\"testId\\\n\":\\\"8b08bed6-ba48-4c9e-82e5-3aaeb5e472ec\\\",\\\"time\\\":\\\"2026-09-01T04:14:49.657423839Z\\\"}\\n\"},\"request\nId\":\"8b08bed6-ba48-4c9e-82e5-3aaeb5e472ec\",\"testId\":\"8b08bed6-ba48-4c9e-82e5-3aaeb5e472ec\"}\n"
+      "checked_on": "2026-09-01",
+      "depart_date": "2026-11-30",
+      "return_date": "2026-12-21",
+      "cheapest_price_usd": 4338,
+      "airline": "Cathay Pacific",
+      "stops": 1,
+      "duration": "36 hr 25 min",
+      "current_price_signal": "low"
     }
   ],
-  "alert_threshold_usd": 3800,
-  "deals": [],
   "all_results": [
     {
-      "checked_on": "2026-08-31",
+      "checked_on": "2026-09-01",
       "depart_date": "2026-11-15",
       "return_date": "2026-12-06",
       "cheapest_price_usd": 5537,
@@ -27,7 +39,7 @@
       "current_price_signal": "typical"
     },
     {
-      "checked_on": "2026-08-31",
+      "checked_on": "2026-09-01",
       "depart_date": "2026-11-18",
       "return_date": "2026-12-09",
       "cheapest_price_usd": 5287,
@@ -37,7 +49,7 @@
       "current_price_signal": "typical"
     },
     {
-      "checked_on": "2026-08-31",
+      "checked_on": "2026-09-01",
       "depart_date": "2026-11-21",
       "return_date": "2026-12-12",
       "cheapest_price_usd": 6648,
@@ -47,27 +59,27 @@
       "current_price_signal": "typical"
     },
     {
-      "checked_on": "2026-08-31",
+      "checked_on": "2026-09-01",
       "depart_date": "2026-11-24",
       "return_date": "2026-12-15",
       "cheapest_price_usd": 4338,
-      "airline": "Cathay Pacific",
-      "stops": 1,
-      "duration": "23 hr 55 min",
+      "airline": "",
+      "stops": "Unknown",
+      "duration": "",
       "current_price_signal": "low"
     },
     {
-      "checked_on": "2026-08-31",
+      "checked_on": "2026-09-01",
       "depart_date": "2026-11-27",
       "return_date": "2026-12-18",
       "cheapest_price_usd": 5268,
-      "airline": "Emirates",
-      "stops": 1,
-      "duration": "21 hr 15 min",
+      "airline": "",
+      "stops": "Unknown",
+      "duration": "",
       "current_price_signal": "typical"
     },
     {
-      "checked_on": "2026-08-31",
+      "checked_on": "2026-09-01",
       "depart_date": "2026-11-30",
       "return_date": "2026-12-21",
       "cheapest_price_usd": 4338,
@@ -77,27 +89,47 @@
       "current_price_signal": "low"
     },
     {
-      "checked_on": "2026-08-31",
-      "depart_date": "2026-12-09",
-      "return_date": "2026-12-30",
-      "cheapest_price_usd": 6641,
-      "airline": "British Airways",
-      "stops": 1,
-      "duration": "22 hr 30 min",
+      "checked_on": "2026-09-01",
+      "depart_date": "2026-12-03",
+      "return_date": "2026-12-24",
+      "cheapest_price_usd": 6236,
+      "airline": "",
+      "stops": "Unknown",
+      "duration": "",
       "current_price_signal": "typical"
     },
     {
-      "checked_on": "2026-08-31",
-      "depart_date": "2026-12-12",
-      "return_date": "2027-01-02",
-      "cheapest_price_usd": 9621,
+      "checked_on": "2026-09-01",
+      "depart_date": "2026-12-06",
+      "return_date": "2026-12-27",
+      "cheapest_price_usd": 5537,
       "airline": "Cathay Pacific",
       "stops": 1,
       "duration": "23 hr 55 min",
+      "current_price_signal": "typical"
+    },
+    {
+      "checked_on": "2026-09-01",
+      "depart_date": "2026-12-09",
+      "return_date": "2026-12-30",
+      "cheapest_price_usd": 6641,
+      "airline": "",
+      "stops": "Unknown",
+      "duration": "",
+      "current_price_signal": "typical"
+    },
+    {
+      "checked_on": "2026-09-01",
+      "depart_date": "2026-12-12",
+      "return_date": "2027-01-02",
+      "cheapest_price_usd": 9621,
+      "airline": "",
+      "stops": "Unknown",
+      "duration": "",
       "current_price_signal": "high"
     },
     {
-      "checked_on": "2026-08-31",
+      "checked_on": "2026-09-01",
       "depart_date": "2026-12-15",
       "return_date": "2027-01-05",
       "cheapest_price_usd": 6830,
@@ -108,13 +140,13 @@
     }
   ],
   "cheapest_overall": {
-    "checked_on": "2026-08-31",
+    "checked_on": "2026-09-01",
     "depart_date": "2026-11-24",
     "return_date": "2026-12-15",
     "cheapest_price_usd": 4338,
-    "airline": "Cathay Pacific",
-    "stops": 1,
-    "duration": "23 hr 55 min",
+    "airline": "",
+    "stops": "Unknown",
+    "duration": "",
     "current_price_signal": "low"
   }
 }
