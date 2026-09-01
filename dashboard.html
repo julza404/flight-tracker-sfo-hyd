@@ -142,10 +142,23 @@
     display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 0.85rem;
     background: var(--good-soft); color: var(--good); padding: 5px 12px; border-radius: 999px; font-weight: 500;
   }
+  .book-btn {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 0.86rem; font-weight: 500;
+    color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease;
+  }
+  .book-btn:hover { border-color: var(--accent); }
 
   .miles-card .row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
-  .miles-card .row:last-child { border-bottom: none; }
+  .miles-card .row:last-child { border-bottom: 1px solid var(--border); }
   .miles-card .row .v { font-weight: 500; }
+  .points-note { font-size: 0.8rem; color: var(--ink-muted); line-height: 1.55; margin: 12px 0 8px; }
+  .check-award-link {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 0.86rem; font-weight: 500;
+    color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease;
+  }
+  .check-award-link:hover { border-color: var(--accent); }
+  .view-link { font-size: 0.8rem; color: var(--accent); text-decoration: none; font-weight: 500; white-space: nowrap; }
+  .view-link:hover { text-decoration: underline; }
 
   /* ---------- Chart ---------- */
   .chart-card { margin-top: 16px; }
@@ -254,12 +267,19 @@
       <div class="best-price mono" id="bestPrice">&mdash;</div>
       <div class="best-dates" id="bestDates">&mdash;</div>
       <div class="best-airline" id="bestAirline">&mdash;</div>
+      <a class="book-btn" id="bookBest" href="#" target="_blank" rel="noopener">Book this fare on Google Flights →</a>
     </div>
     <div class="card miles-card">
-      <h2>Capital One redemption</h2>
-      <div class="row"><span>Purchase Eraser (1&cent;/mi)</span><span class="v mono" id="milesEraser">&mdash;</span></div>
+      <h2>Points math</h2>
+      <div class="row"><span>Purchase Eraser (1&cent;/mi, cash&rarr;points)</span><span class="v mono" id="milesEraser">&mdash;</span></div>
       <div class="row"><span>Range swept</span><span class="v mono" id="priceRange">&mdash;</span></div>
       <div class="row"><span>Dates checked</span><span class="v mono" id="datesCount">&mdash;</span></div>
+      <p class="points-note">
+        This is a cash&rarr;points conversion, not a live award deal &mdash; there's no free API for real transfer-partner
+        seat availability, so it isn't tracked automatically. Cathay Pacific is the most frequent carrier on this route
+        and a direct 1:1 Capital One transfer partner &mdash; worth checking by hand:
+      </p>
+      <a class="check-award-link" href="https://www.cathaypacific.com/cx/en_US/redeem-flight-awards.html" target="_blank" rel="noopener">Check Cathay Pacific Asia Miles award space →</a>
     </div>
   </section>
 
@@ -282,7 +302,7 @@
     <h2 style="margin-bottom:14px;">Manifest &mdash; all swept dates</h2>
     <div class="table-scroll">
       <table>
-        <thead><tr><th>Depart</th><th>Return</th><th>Fare</th><th>Airline</th><th>Stops</th><th>Signal</th></tr></thead>
+        <thead><tr><th>Depart</th><th>Return</th><th>Fare</th><th>Airline</th><th>Stops</th><th>Signal</th><th></th></tr></thead>
         <tbody id="manifestBody"></tbody>
       </table>
     </div>
@@ -305,33 +325,31 @@
     business: {
       threshold: 4500,
       fares: [
-        { depart: "2026-11-15", ret: "2026-12-16", price: 5537, signal: "typical", airline: null, stops: null },
-        { depart: "2026-11-18", ret: "2026-12-19", price: 5537, signal: "typical", airline: null, stops: null },
-        { depart: "2026-11-21", ret: "2026-12-22", price: 6648, signal: "typical", airline: "Air Canada, Emirates", stops: 2 },
-        { depart: "2026-11-24", ret: "2026-12-25", price: 4588, signal: "low", airline: null, stops: null },
-        { depart: "2026-11-27", ret: "2026-12-28", price: 5537, signal: "typical", airline: "Cathay Pacific", stops: 1 },
-        { depart: "2026-11-30", ret: "2026-12-31", price: 6730, signal: "typical", airline: "Cathay Pacific", stops: 1 },
-        { depart: "2026-12-03", ret: "2027-01-03", price: 7679, signal: "typical", airline: null, stops: null },
-        { depart: "2026-12-06", ret: "2027-01-06", price: 5637, signal: "typical", airline: null, stops: null },
-        { depart: "2026-12-09", ret: "2027-01-09", price: 7929, signal: "typical", airline: "Cathay Pacific", stops: 1 },
-        { depart: "2026-12-12", ret: "2027-01-12", price: 6980, signal: "typical", airline: "Cathay Pacific", stops: 1 },
-        { depart: "2026-12-15", ret: "2027-01-15", price: 6800, signal: "typical", airline: "SWISS, Edelweiss Air, SriLankan", stops: 2 },
+        { depart: "2026-11-15", ret: "2026-12-16", price: 5537, signal: "typical", airline: "Cathay Pacific", stops: 1, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTVqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTE2agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD" },
+        { depart: "2026-11-18", ret: "2026-12-19", price: 5537, signal: "typical", airline: null, stops: null, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMThqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTE5agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD" },
+        { depart: "2026-11-21", ret: "2026-12-22", price: 6648, signal: "typical", airline: null, stops: null, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjFqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTIyagUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD" },
+        { depart: "2026-11-24", ret: "2026-12-25", price: 4588, signal: "low", airline: null, stops: null, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjRqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTI1agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD" },
+        { depart: "2026-11-27", ret: "2026-12-28", price: 5537, signal: "typical", airline: null, stops: null, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjdqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTI4agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD" },
+        { depart: "2026-11-30", ret: "2026-12-31", price: 6730, signal: "typical", airline: null, stops: null, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMzBqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTMxagUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD" },
+        { depart: "2026-12-03", ret: "2027-01-03", price: 7679, signal: "typical", airline: "Cathay Pacific", stops: 1, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMDNqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTAzagUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD" },
+        { depart: "2026-12-06", ret: "2027-01-06", price: 5637, signal: "typical", airline: null, stops: null, url: null },
+        { depart: "2026-12-09", ret: "2027-01-09", price: 7929, signal: "typical", airline: "Cathay Pacific", stops: 1, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMDlqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTA5agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD" },
+        { depart: "2026-12-12", ret: "2027-01-12", price: 6980, signal: "typical", airline: "Cathay Pacific", stops: 1, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMTJqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTEyagUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD" },
+        { depart: "2026-12-15", ret: "2027-01-15", price: 6800, signal: "typical", airline: null, stops: null, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMTVqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTE1agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD" },
       ]
     },
     premium: {
       threshold: 2200,
       fares: [
-        { depart: "2026-11-15", ret: "2026-12-16", price: 2055, signal: "", airline: null, stops: null },
-        { depart: "2026-11-18", ret: "2026-12-19", price: 2735, signal: "", airline: null, stops: null },
-        { depart: "2026-11-21", ret: "2026-12-22", price: 2543, signal: "", airline: null, stops: null },
-        { depart: "2026-11-24", ret: "2026-12-25", price: 2370, signal: "", airline: "American, British Airways", stops: 2 },
-        { depart: "2026-11-27", ret: "2026-12-28", price: 2532, signal: "", airline: "Singapore Airlines", stops: 1 },
-        { depart: "2026-11-30", ret: "2026-12-31", price: 3180, signal: "", airline: null, stops: null },
-        { depart: "2026-12-03", ret: "2027-01-03", price: 3821, signal: "", airline: null, stops: null },
-        { depart: "2026-12-06", ret: "2027-01-06", price: 3199, signal: "", airline: "Cathay Pacific", stops: 1 },
-        { depart: "2026-12-09", ret: "2027-01-09", price: 3199, signal: "", airline: "Cathay Pacific", stops: 1 },
-        { depart: "2026-12-12", ret: "2027-01-12", price: 3260, signal: "", airline: "Alaska, British Airways", stops: 2 },
-        { depart: "2026-12-15", ret: "2027-01-15", price: 3457, signal: "", airline: null, stops: null },
+        { depart: "2026-11-21", ret: "2026-12-22", price: 2543, signal: "", airline: "American, British Airways", stops: 2, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjFqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTIyagUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD" },
+        { depart: "2026-11-24", ret: "2026-12-25", price: 2370, signal: "", airline: "American, British Airways", stops: 2, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjRqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTI1agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD" },
+        { depart: "2026-11-27", ret: "2026-12-28", price: 2532, signal: "", airline: "Singapore Airlines", stops: 1, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjdqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTI4agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD" },
+        { depart: "2026-11-30", ret: "2026-12-31", price: 3180, signal: "", airline: null, stops: null, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMzBqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTMxagUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD" },
+        { depart: "2026-12-03", ret: "2027-01-03", price: 3821, signal: "", airline: null, stops: null, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMDNqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTAzagUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD" },
+        { depart: "2026-12-06", ret: "2027-01-06", price: 3199, signal: "", airline: null, stops: null, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMDZqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTA2agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD" },
+        { depart: "2026-12-09", ret: "2027-01-09", price: 3199, signal: "", airline: null, stops: null, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMDlqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTA5agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD" },
+        { depart: "2026-12-12", ret: "2027-01-12", price: 3260, signal: "", airline: "Alaska, British Airways", stops: 2, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMTJqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTEyagUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD" },
+        { depart: "2026-12-15", ret: "2027-01-15", price: 3457, signal: "", airline: "Cathay Pacific", stops: 1, url: "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMTVqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTE1agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD" },
       ]
     }
   };
@@ -364,6 +382,15 @@
         "Premium economy added as a second tracked cabin, with its own alert threshold and running-best history so it never masks a business-class deal.",
         "First premium-economy read: $2,055 round trip (Nov 15 &rarr; Dec 16), under the $2,200 placeholder threshold &mdash; flagged as a new low on the very first check."
       ]
+    },
+    {
+      date: "2026-09-01",
+      headline: "Fixed unbookable results, added booking links",
+      lines: [
+        "Some scraped rows came back with a blank airline name (a DOM mis-parse on certain multi-airline listings, not a distinct fare) and were winning the 'cheapest' slot despite not being a real bookable result. Now filtered out in favor of a confirmed row whenever one exists for that date.",
+        "Every fare now links to a live, bookable Google Flights search for that exact route/dates/cabin instead of just showing a price.",
+        "Clarified that the miles figure shown is a cash&rarr;points conversion (Capital One Purchase Eraser), not a tracked award deal &mdash; there's no free API for live transfer-partner seat availability. Added a manual-check link to Cathay Pacific Asia Miles, since Cathay is the most frequent carrier on this route and a direct Capital One transfer partner."
+      ]
     }
   ];
 
@@ -393,6 +420,14 @@
     document.getElementById("priceRange").textContent = fmt(Math.min(...prices)) + " – " + fmt(Math.max(...prices));
     document.getElementById("datesCount").textContent = fares.length + " departures";
     document.getElementById("lastChecked").textContent = fmtDate(lastCheckedDate) + ", " + lastCheckedDate.slice(0, 4);
+
+    const bookBtn = document.getElementById("bookBest");
+    if (cheapest.url) {
+      bookBtn.href = cheapest.url;
+      bookBtn.hidden = false;
+    } else {
+      bookBtn.hidden = true;
+    }
 
     drawChart(fares, prices);
     renderTable(fares);
@@ -475,6 +510,7 @@
         <td>${f.airline || '<span class="muted">unconfirmed</span>'}</td>
         <td class="mono">${f.stops != null ? f.stops : '<span class="muted">&mdash;</span>'}</td>
         <td><span class="pill ${signalPillClass(f.signal)}">${signalText(f.signal)}</span></td>
+        <td>${f.url ? `<a class="view-link" href="${f.url}" target="_blank" rel="noopener">Book →</a>` : ''}</td>
       `;
       tbody.appendChild(tr);
     });
