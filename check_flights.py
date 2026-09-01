@@ -19,7 +19,7 @@ import sys
 from datetime import date, timedelta
 from pathlib import Path
 
-from fast_flights import FlightData, Passengers, get_flights
+from fast_flights import FlightData, Passengers, create_filter, get_flights
 
 # ---------------- CONFIG ----------------
 ORIGIN = "SFO"
@@ -58,8 +58,8 @@ def sweep_dates():
         d += timedelta(days=SWEEP_STEP_DAYS)
 
 
-def query_one(depart: date, return_: date, seat: str):
-    result = get_flights(
+def flight_query_args(depart: date, return_: date, seat: str):
+    return dict(
         flight_data=[
             FlightData(date=depart.isoformat(), from_airport=ORIGIN, to_airport=DEST),
             FlightData(date=return_.isoformat(), from_airport=DEST, to_airport=ORIGIN),
@@ -67,9 +67,21 @@ def query_one(depart: date, return_: date, seat: str):
         trip="round-trip",
         seat=seat,
         passengers=Passengers(adults=1, children=0, infants_in_seat=0, infants_on_lap=0),
-        fetch_mode="fallback",
     )
-    return result
+
+
+def query_one(depart: date, return_: date, seat: str):
+    args = flight_query_args(depart, return_, seat)
+    return get_flights(**args, fetch_mode="fallback")
+
+
+def booking_url(depart: date, return_: date, seat: str):
+    # Same tfs-encoded search Google Flights itself uses -- opens live results
+    # for this route/date/cabin so a fare can actually be booked, not just read.
+    args = flight_query_args(depart, return_, seat)
+    filt = create_filter(**args)
+    b64 = filt.as_b64().decode("utf-8")
+    return f"https://www.google.com/travel/flights?tfs={b64}&hl=en&curr=USD"
 
 
 def parse_price(price_str: str):
@@ -95,12 +107,17 @@ def run_cabin(seat: str, run_timestamp: str):
 
         priced_flights = [(f, parse_price(f.price)) for f in result.flights]
         priced_flights = [(f, p) for f, p in priced_flights if p is not None]
+        # Drop incomplete parses: the scraper occasionally mis-extracts a multi-airline
+        # / codeshare row as blank name + blank duration (a DOM-selector quirk, not a
+        # real fare distinct from the named rows at the same price) -- keeping those
+        # around only produces unbookable "carrier unconfirmed" results.
+        confirmed_flights = [(f, p) for f, p in priced_flights if f.name and f.duration]
+        if confirmed_flights:
+            priced_flights = confirmed_flights
         if not priced_flights:
             continue
 
-        # Sort by price, then prefer rows with a real airline name (Google occasionally
-        # returns a blank name/stops for an otherwise-valid, cheapest-priced row).
-        priced_flights.sort(key=lambda fp: (fp[1], not fp[0].name))
+        priced_flights.sort(key=lambda fp: fp[1])
         cheapest_flight, cheapest_price = priced_flights[0]
 
         row = {
@@ -113,6 +130,7 @@ def run_cabin(seat: str, run_timestamp: str):
             "stops": cheapest_flight.stops,
             "duration": cheapest_flight.duration,
             "current_price_signal": result.current_price,  # google's "low/typical/high" indicator
+            "booking_url": booking_url(depart, return_, seat),
         }
         rows.append(row)
 
