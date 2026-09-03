@@ -1,5 +1,5 @@
 {
-  "checked_on": "2026-09-02",
+  "checked_on": "2026-09-03",
   "should_notify": true,
   "by_cabin": {
     "business": {
@@ -8,16 +8,16 @@
       "running_best_usd": 4338,
       "deals": [],
       "cheapest_overall": {
-        "checked_on": "2026-09-02",
+        "checked_on": "2026-09-03",
         "cabin": "business",
-        "depart_date": "2026-11-24",
-        "return_date": "2026-12-25",
-        "cheapest_price_usd": 4588,
-        "airline": "Cathay Pacific",
-        "stops": 1,
-        "duration": "23 hr 55 min",
-        "current_price_signal": "low",
-        "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjRqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTI1agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
+        "depart_date": "2026-12-06",
+        "return_date": "2027-01-06",
+        "cheapest_price_usd": 5637,
+        "airline": "",
+        "stops": "Unknown",
+        "duration": "",
+        "current_price_signal": "typical",
+        "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMDZqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTA2agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
       },
       "alert_threshold_usd": 4500
     },
@@ -27,27 +27,27 @@
       "running_best_usd": 2055,
       "deals": [
         {
-          "checked_on": "2026-09-02",
+          "checked_on": "2026-09-03",
           "cabin": "premium-economy",
           "depart_date": "2026-11-15",
           "return_date": "2026-12-16",
           "cheapest_price_usd": 2055,
-          "airline": "Alaska, British Airways",
-          "stops": 2,
-          "duration": "25 hr 8 min",
+          "airline": "",
+          "stops": "Unknown",
+          "duration": "",
           "current_price_signal": "",
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTVqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTE2agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
         }
       ],
       "cheapest_overall": {
-        "checked_on": "2026-09-02",
+        "checked_on": "2026-09-03",
         "cabin": "premium-economy",
         "depart_date": "2026-11-15",
         "return_date": "2026-12-16",
         "cheapest_price_usd": 2055,
-        "airline": "Alaska, British Airways",
-        "stops": 2,
-        "duration": "25 hr 8 min",
+        "airline": "",
+        "stops": "Unknown",
+        "duration": "",
         "current_price_signal": "",
         "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTVqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTE2agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
       },
