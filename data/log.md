@@ -109,3 +109,17 @@ cabin (### Business / ### Premium Economy) going forward.
 - **1 deal(s) at/under $2,200:**
   - $2,055 | 2026-11-15 -> 2026-12-16 | carrier unconfirmed
 - Running best price so far: **$2,055**.
+
+## 2026-09-04
+
+### Business
+- Swept 10/11 candidate departure dates (1 failed).
+- Cheapest overall: **$5,537** round trip — Cathay Pacific, 1 stop(s) — on 2026-11-15 -> 2026-12-16.
+- No deals at/under $4,500 this run.
+- Running best price so far: **$4,338**.
+
+### Premium Economy
+- Swept 10/11 candidate departure dates (1 failed).
+- Cheapest overall: **$2,370** round trip — American, British Airways, 2 stop(s) — on 2026-11-24 -> 2026-12-25.
+- No deals at/under $2,200 this run.
+- Running best price so far: **$2,055**.
