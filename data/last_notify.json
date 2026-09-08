@@ -1,5 +1,5 @@
 {
-  "checked_on": "2026-09-07",
+  "checked_on": "2026-09-08",
   "should_notify": true,
   "by_cabin": {
     "business": {
@@ -8,14 +8,14 @@
       "running_best_usd": 4338,
       "deals": [],
       "cheapest_overall": {
-        "checked_on": "2026-09-07",
+        "checked_on": "2026-09-08",
         "cabin": "business",
         "depart_date": "2026-11-24",
         "return_date": "2026-12-25",
         "cheapest_price_usd": 4588,
-        "airline": "",
-        "stops": "Unknown",
-        "duration": "",
+        "airline": "Cathay Pacific",
+        "stops": 1,
+        "duration": "23 hr 55 min",
         "current_price_signal": "low",
         "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjRqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTI1agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
       },
@@ -23,11 +23,11 @@
     },
     "premium-economy": {
       "should_notify": true,
-      "is_new_best": true,
+      "is_new_best": false,
       "running_best_usd": 1895,
       "deals": [
         {
-          "checked_on": "2026-09-07",
+          "checked_on": "2026-09-08",
           "cabin": "premium-economy",
           "depart_date": "2026-11-15",
           "return_date": "2026-12-16",
@@ -40,7 +40,7 @@
         }
       ],
       "cheapest_overall": {
-        "checked_on": "2026-09-07",
+        "checked_on": "2026-09-08",
         "cabin": "premium-economy",
         "depart_date": "2026-11-15",
         "return_date": "2026-12-16",

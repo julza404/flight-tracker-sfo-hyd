@@ -166,3 +166,18 @@ cabin (### Business / ### Premium Economy) going forward.
 - **1 deal(s) at/under $2,200:**
   - $1,895 | 2026-11-15 -> 2026-12-16 | Alaska, British Airways
 - Running best price so far: **$1,895** (new low!).
+
+## 2026-09-08
+
+### Business
+- Swept 11/11 candidate departure dates (0 failed).
+- Cheapest overall: **$4,588** round trip — Cathay Pacific, 1 stop(s) — on 2026-11-24 -> 2026-12-25.
+- No deals at/under $4,500 this run.
+- Running best price so far: **$4,338**.
+
+### Premium Economy
+- Swept 11/11 candidate departure dates (0 failed).
+- Cheapest overall: **$1,895** round trip — Alaska, British Airways, 2 stop(s) — on 2026-11-15 -> 2026-12-16.
+- **1 deal(s) at/under $2,200:**
+  - $1,895 | 2026-11-15 -> 2026-12-16 | Alaska, British Airways
+- Running best price so far: **$1,895**.
