@@ -1,41 +1,54 @@
 {
-  "run_timestamp": "2026-09-08",
+  "run_timestamp": "2026-09-09",
   "by_cabin": {
     "business": {
       "cabin": "business",
       "alert_threshold_usd": 4500,
       "dates_checked": 11,
-      "dates_succeeded": 11,
-      "dates_errored": 0,
-      "errors": [],
+      "dates_succeeded": 8,
+      "dates_errored": 3,
+      "errors": [
+        {
+          "depart": "2026-11-24",
+          "error": "401 Result: {\"error\":\"no token provided\",\"logs\":{\"control\":\"{\\\"level\\\":\\\"info\\\",\\\"message\\\":\\\"Validating\nturnstile\\\",\\\"request-id\\\":\\\"bb8c180f-8e82-4d7f-ad93-a91656071a64\\\",\\\"service\\\":\\\"control\\\",\\\"testId\n\\\":\\\"bb8c180f-8e82-4d7f-ad93-a91656071a64\\\",\\\"time\\\":\\\"2026-09-09T17:46:05.216100402Z\\\"}\\n{\\\"level\\\"\n:\\\"info\\\",\\\"message\\\":\\\"Could not validate turnstile: no token\nprovided\\\",\\\"request-id\\\":\\\"bb8c180f-8e82-4d7f-ad93-a91656071a64\\\",\\\"service\\\":\\\"control\\\",\\\"testId\\\n\":\\\"bb8c180f-8e82-4d7f-ad93-a91656071a64\\\",\\\"time\\\":\\\"2026-09-09T17:46:05.216195163Z\\\"}\\n\"},\"request\nId\":\"bb8c180f-8e82-4d7f-ad93-a91656071a64\",\"testId\":\"bb8c180f-8e82-4d7f-ad93-a91656071a64\"}\n"
+        },
+        {
+          "depart": "2026-12-06",
+          "error": "401 Result: {\"error\":\"no token provided\",\"logs\":{\"control\":\"{\\\"level\\\":\\\"info\\\",\\\"message\\\":\\\"Validating\nturnstile\\\",\\\"request-id\\\":\\\"750a1103-6fcc-4306-a4bd-5944b0a6097f\\\",\\\"service\\\":\\\"control\\\",\\\"testId\n\\\":\\\"750a1103-6fcc-4306-a4bd-5944b0a6097f\\\",\\\"time\\\":\\\"2026-09-09T17:46:09.996543101Z\\\"}\\n{\\\"level\\\"\n:\\\"info\\\",\\\"message\\\":\\\"Could not validate turnstile: no token\nprovided\\\",\\\"request-id\\\":\\\"750a1103-6fcc-4306-a4bd-5944b0a6097f\\\",\\\"service\\\":\\\"control\\\",\\\"testId\\\n\":\\\"750a1103-6fcc-4306-a4bd-5944b0a6097f\\\",\\\"time\\\":\\\"2026-09-09T17:46:09.996608466Z\\\"}\\n\"},\"request\nId\":\"750a1103-6fcc-4306-a4bd-5944b0a6097f\",\"testId\":\"750a1103-6fcc-4306-a4bd-5944b0a6097f\"}\n"
+        },
+        {
+          "depart": "2026-12-15",
+          "error": "401 Result: {\"error\":\"no token provided\",\"logs\":{\"control\":\"{\\\"level\\\":\\\"info\\\",\\\"message\\\":\\\"Validating\nturnstile\\\",\\\"request-id\\\":\\\"9099f5a3-e69d-4b8f-90e6-47e32a6a75ef\\\",\\\"service\\\":\\\"control\\\",\\\"testId\n\\\":\\\"9099f5a3-e69d-4b8f-90e6-47e32a6a75ef\\\",\\\"time\\\":\\\"2026-09-09T17:46:12.488841565Z\\\"}\\n{\\\"level\\\"\n:\\\"info\\\",\\\"message\\\":\\\"Could not validate turnstile: no token\nprovided\\\",\\\"request-id\\\":\\\"9099f5a3-e69d-4b8f-90e6-47e32a6a75ef\\\",\\\"service\\\":\\\"control\\\",\\\"testId\\\n\":\\\"9099f5a3-e69d-4b8f-90e6-47e32a6a75ef\\\",\\\"time\\\":\\\"2026-09-09T17:46:12.488893665Z\\\"}\\n\"},\"request\nId\":\"9099f5a3-e69d-4b8f-90e6-47e32a6a75ef\",\"testId\":\"9099f5a3-e69d-4b8f-90e6-47e32a6a75ef\"}\n"
+        }
+      ],
       "deals": [],
       "all_results": [
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "business",
           "depart_date": "2026-11-15",
           "return_date": "2026-12-16",
           "cheapest_price_usd": 5537,
-          "airline": "",
-          "stops": "Unknown",
-          "duration": "",
-          "current_price_signal": "typical",
-          "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTVqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTE2agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
-        },
-        {
-          "checked_on": "2026-09-08",
-          "cabin": "business",
-          "depart_date": "2026-11-18",
-          "return_date": "2026-12-19",
-          "cheapest_price_usd": 5637,
           "airline": "Cathay Pacific",
           "stops": 1,
           "duration": "23 hr 55 min",
           "current_price_signal": "typical",
+          "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTVqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTE2agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
+        },
+        {
+          "checked_on": "2026-09-09",
+          "cabin": "business",
+          "depart_date": "2026-11-18",
+          "return_date": "2026-12-19",
+          "cheapest_price_usd": 5637,
+          "airline": "",
+          "stops": "Unknown",
+          "duration": "",
+          "current_price_signal": "typical",
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMThqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTE5agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "business",
           "depart_date": "2026-11-21",
           "return_date": "2026-12-22",
@@ -47,31 +60,19 @@
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjFqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTIyagUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
-          "cabin": "business",
-          "depart_date": "2026-11-24",
-          "return_date": "2026-12-25",
-          "cheapest_price_usd": 4588,
-          "airline": "Cathay Pacific",
-          "stops": 1,
-          "duration": "23 hr 55 min",
-          "current_price_signal": "low",
-          "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjRqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTI1agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
-        },
-        {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "business",
           "depart_date": "2026-11-27",
           "return_date": "2026-12-28",
           "cheapest_price_usd": 5537,
-          "airline": "",
-          "stops": "Unknown",
-          "duration": "",
+          "airline": "Cathay Pacific",
+          "stops": 1,
+          "duration": "23 hr 55 min",
           "current_price_signal": "typical",
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjdqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTI4agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "business",
           "depart_date": "2026-11-30",
           "return_date": "2026-12-31",
@@ -83,7 +84,7 @@
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMzBqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTMxagUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "business",
           "depart_date": "2026-12-03",
           "return_date": "2027-01-03",
@@ -95,31 +96,19 @@
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMDNqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTAzagUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
-          "cabin": "business",
-          "depart_date": "2026-12-06",
-          "return_date": "2027-01-06",
-          "cheapest_price_usd": 6486,
-          "airline": "",
-          "stops": "Unknown",
-          "duration": "",
-          "current_price_signal": "typical",
-          "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMDZqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTA2agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
-        },
-        {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "business",
           "depart_date": "2026-12-09",
           "return_date": "2027-01-09",
           "cheapest_price_usd": 7929,
-          "airline": "Cathay Pacific",
-          "stops": 1,
-          "duration": "23 hr 55 min",
+          "airline": "",
+          "stops": "Unknown",
+          "duration": "",
           "current_price_signal": "typical",
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMDlqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTA5agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "business",
           "depart_date": "2026-12-12",
           "return_date": "2027-01-12",
@@ -129,43 +118,36 @@
           "duration": "23 hr 55 min",
           "current_price_signal": "typical",
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMTJqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTEyagUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
-        },
-        {
-          "checked_on": "2026-09-08",
-          "cabin": "business",
-          "depart_date": "2026-12-15",
-          "return_date": "2027-01-15",
-          "cheapest_price_usd": 6980,
-          "airline": "Cathay Pacific",
-          "stops": 1,
-          "duration": "23 hr 55 min",
-          "current_price_signal": "typical",
-          "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMTVqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTE1agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
         }
       ],
       "cheapest_overall": {
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-09",
         "cabin": "business",
-        "depart_date": "2026-11-24",
-        "return_date": "2026-12-25",
-        "cheapest_price_usd": 4588,
+        "depart_date": "2026-11-15",
+        "return_date": "2026-12-16",
+        "cheapest_price_usd": 5537,
         "airline": "Cathay Pacific",
         "stops": 1,
         "duration": "23 hr 55 min",
-        "current_price_signal": "low",
-        "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjRqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTI1agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
+        "current_price_signal": "typical",
+        "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTVqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTE2agUSA0hZRHIFEgNTRk9CAQFIA5gBAQ==&hl=en&curr=USD"
       }
     },
     "premium-economy": {
       "cabin": "premium-economy",
       "alert_threshold_usd": 2200,
       "dates_checked": 11,
-      "dates_succeeded": 11,
-      "dates_errored": 0,
-      "errors": [],
+      "dates_succeeded": 10,
+      "dates_errored": 1,
+      "errors": [
+        {
+          "depart": "2026-12-15",
+          "error": "401 Result: {\"error\":\"no token provided\",\"logs\":{\"control\":\"{\\\"level\\\":\\\"info\\\",\\\"message\\\":\\\"Validating\nturnstile\\\",\\\"request-id\\\":\\\"4224acc5-4ac1-4349-adf4-5a29075c7600\\\",\\\"service\\\":\\\"control\\\",\\\"testId\n\\\":\\\"4224acc5-4ac1-4349-adf4-5a29075c7600\\\",\\\"time\\\":\\\"2026-09-09T17:46:21.162836931Z\\\"}\\n{\\\"level\\\"\n:\\\"info\\\",\\\"message\\\":\\\"Could not validate turnstile: no token\nprovided\\\",\\\"request-id\\\":\\\"4224acc5-4ac1-4349-adf4-5a29075c7600\\\",\\\"service\\\":\\\"control\\\",\\\"testId\\\n\":\\\"4224acc5-4ac1-4349-adf4-5a29075c7600\\\",\\\"time\\\":\\\"2026-09-09T17:46:21.162889662Z\\\"}\\n\"},\"request\nId\":\"4224acc5-4ac1-4349-adf4-5a29075c7600\",\"testId\":\"4224acc5-4ac1-4349-adf4-5a29075c7600\"}\n"
+        }
+      ],
       "deals": [
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "premium-economy",
           "depart_date": "2026-11-15",
           "return_date": "2026-12-16",
@@ -179,7 +161,7 @@
       ],
       "all_results": [
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "premium-economy",
           "depart_date": "2026-11-15",
           "return_date": "2026-12-16",
@@ -191,7 +173,7 @@
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMTVqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTE2agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "premium-economy",
           "depart_date": "2026-11-18",
           "return_date": "2026-12-19",
@@ -203,7 +185,7 @@
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMThqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTE5agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "premium-economy",
           "depart_date": "2026-11-21",
           "return_date": "2026-12-22",
@@ -215,31 +197,31 @@
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjFqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTIyagUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "premium-economy",
           "depart_date": "2026-11-24",
           "return_date": "2026-12-25",
           "cheapest_price_usd": 2370,
-          "airline": "American, British Airways",
-          "stops": 2,
-          "duration": "25 hr 48 min",
+          "airline": "",
+          "stops": "Unknown",
+          "duration": "",
           "current_price_signal": "",
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjRqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTI1agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "premium-economy",
           "depart_date": "2026-11-27",
           "return_date": "2026-12-28",
           "cheapest_price_usd": 2646,
-          "airline": "Cathay Pacific",
-          "stops": 1,
-          "duration": "36 hr 25 min",
+          "airline": "",
+          "stops": "Unknown",
+          "duration": "",
           "current_price_signal": "",
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMjdqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTI4agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "premium-economy",
           "depart_date": "2026-11-30",
           "return_date": "2026-12-31",
@@ -251,19 +233,19 @@
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTEtMzBqBRIDU0ZPcgUSA0hZRBoaEgoyMDI2LTEyLTMxagUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "premium-economy",
           "depart_date": "2026-12-03",
           "return_date": "2027-01-03",
           "cheapest_price_usd": 4754,
-          "airline": "China Airlines, Malaysia Airlines",
-          "stops": 2,
-          "duration": "34 hr 10 min",
+          "airline": "",
+          "stops": "Unknown",
+          "duration": "",
           "current_price_signal": "",
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMDNqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTAzagUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "premium-economy",
           "depart_date": "2026-12-06",
           "return_date": "2027-01-06",
@@ -275,44 +257,32 @@
           "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMDZqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTA2agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "premium-economy",
           "depart_date": "2026-12-09",
           "return_date": "2027-01-09",
           "cheapest_price_usd": 3761,
-          "airline": "China Airlines, Malaysia Airlines",
-          "stops": 2,
-          "duration": "34 hr 10 min",
-          "current_price_signal": "",
-          "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMDlqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTA5agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
-        },
-        {
-          "checked_on": "2026-09-08",
-          "cabin": "premium-economy",
-          "depart_date": "2026-12-12",
-          "return_date": "2027-01-12",
-          "cheapest_price_usd": 2955,
           "airline": "",
           "stops": "Unknown",
           "duration": "",
           "current_price_signal": "",
-          "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMTJqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTEyagUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
+          "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMDlqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTA5agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
         },
         {
-          "checked_on": "2026-09-08",
+          "checked_on": "2026-09-09",
           "cabin": "premium-economy",
-          "depart_date": "2026-12-15",
-          "return_date": "2027-01-15",
-          "cheapest_price_usd": 3438,
-          "airline": "Cathay Pacific",
-          "stops": 1,
-          "duration": "23 hr 55 min",
+          "depart_date": "2026-12-12",
+          "return_date": "2027-01-12",
+          "cheapest_price_usd": 2955,
+          "airline": "American, British Airways",
+          "stops": 2,
+          "duration": "25 hr 48 min",
           "current_price_signal": "",
-          "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMTVqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTE1agUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
+          "booking_url": "https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMTItMTJqBRIDU0ZPcgUSA0hZRBoaEgoyMDI3LTAxLTEyagUSA0hZRHIFEgNTRk9CAQFIApgBAQ==&hl=en&curr=USD"
         }
       ],
       "cheapest_overall": {
-        "checked_on": "2026-09-08",
+        "checked_on": "2026-09-09",
         "cabin": "premium-economy",
         "depart_date": "2026-11-15",
         "return_date": "2026-12-16",
