@@ -1,5 +1,5 @@
 {
-  "checked_on": "2026-09-11",
+  "checked_on": "2026-09-12",
   "should_notify": true,
   "by_cabin": {
     "business": {
@@ -8,7 +8,7 @@
       "running_best_usd": 4338,
       "deals": [],
       "cheapest_overall": {
-        "checked_on": "2026-09-11",
+        "checked_on": "2026-09-12",
         "cabin": "business",
         "depart_date": "2026-11-15",
         "return_date": "2026-12-16",
@@ -27,7 +27,7 @@
       "running_best_usd": 1895,
       "deals": [
         {
-          "checked_on": "2026-09-11",
+          "checked_on": "2026-09-12",
           "cabin": "premium-economy",
           "depart_date": "2026-11-15",
           "return_date": "2026-12-16",
@@ -40,7 +40,7 @@
         }
       ],
       "cheapest_overall": {
-        "checked_on": "2026-09-11",
+        "checked_on": "2026-09-12",
         "cabin": "premium-economy",
         "depart_date": "2026-11-15",
         "return_date": "2026-12-16",
